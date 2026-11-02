@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayer2Actio
     }
     public void OnInvert(InputAction.CallbackContext context)
     {
-        if (IsGrounded())
+        if (IsGrounded() && !context.canceled)
         {
             transform.localScale = new Vector3(transform.localScale.x, -(transform.localScale.y), transform.localScale.z);
             rb.gravityScale = -rb.gravityScale;
