@@ -1112,23 +1112,13 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""priority"": 0
                 },
                 {
-                    ""name"": ""Right"",
-                    ""type"": ""Button"",
-                    ""id"": ""d2778e46-1a56-4153-a363-2f910adae003"",
-                    ""expectedControlType"": """",
+                    ""name"": ""Advance"",
+                    ""type"": ""Value"",
+                    ""id"": ""4e54bffc-9741-4284-969a-1e017f7ee5cb"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false,
-                    ""priority"": 0
-                },
-                {
-                    ""name"": ""Left"",
-                    ""type"": ""Button"",
-                    ""id"": ""2710783c-f99b-4e41-afba-80183f1bfc89"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false,
+                    ""initialStateCheck"": true,
                     ""priority"": 0
                 }
             ],
@@ -1145,48 +1135,59 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""d3b73514-b924-45a4-96a8-2432036e304b"",
-                    ""path"": ""<Keyboard>/d"",
+                    ""name"": ""AD"",
+                    ""id"": ""049ee563-fa33-4f08-9e2b-bcfe13cc140b"",
+                    ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Right"",
-                    ""isComposite"": false,
+                    ""action"": ""Advance"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""dd3ff9ed-b787-41a2-add4-134c843199c3"",
-                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""name"": ""up"",
+                    ""id"": ""fa7b1e23-7f3b-4f7a-89dd-079c864e9843"",
+                    ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Right"",
+                    ""action"": ""Advance"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""ce692ea2-8da0-4149-87be-8f833ec8ee03"",
+                    ""name"": ""down"",
+                    ""id"": ""39d72291-3c4f-496e-afe6-dc86267bf51c"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Advance"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""00fe3153-392c-4c39-8d12-18b6d22e95b8"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Left"",
+                    ""action"": ""Advance"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""11d86b82-ad2f-4fc0-941b-4cee86b1d241"",
-                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""name"": ""right"",
+                    ""id"": ""106a3407-759a-4b42-817f-cc7c0a914e4c"",
+                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Left"",
+                    ""action"": ""Advance"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -1280,8 +1281,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         // Player2
         m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
         m_Player2_Invert = m_Player2.FindAction("Invert", throwIfNotFound: true);
-        m_Player2_Right = m_Player2.FindAction("Right", throwIfNotFound: true);
-        m_Player2_Left = m_Player2.FindAction("Left", throwIfNotFound: true);
+        m_Player2_Advance = m_Player2.FindAction("Advance", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
@@ -1744,8 +1744,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player2;
     private List<IPlayer2Actions> m_Player2ActionsCallbackInterfaces = new List<IPlayer2Actions>();
     private readonly InputAction m_Player2_Invert;
-    private readonly InputAction m_Player2_Right;
-    private readonly InputAction m_Player2_Left;
+    private readonly InputAction m_Player2_Advance;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player2".
     /// </summary>
@@ -1762,13 +1761,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Invert => m_Wrapper.m_Player2_Invert;
         /// <summary>
-        /// Provides access to the underlying input action "Player2/Right".
+        /// Provides access to the underlying input action "Player2/Advance".
         /// </summary>
-        public InputAction @Right => m_Wrapper.m_Player2_Right;
-        /// <summary>
-        /// Provides access to the underlying input action "Player2/Left".
-        /// </summary>
-        public InputAction @Left => m_Wrapper.m_Player2_Left;
+        public InputAction @Advance => m_Wrapper.m_Player2_Advance;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1798,12 +1793,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Invert.started += instance.OnInvert;
             @Invert.performed += instance.OnInvert;
             @Invert.canceled += instance.OnInvert;
-            @Right.started += instance.OnRight;
-            @Right.performed += instance.OnRight;
-            @Right.canceled += instance.OnRight;
-            @Left.started += instance.OnLeft;
-            @Left.performed += instance.OnLeft;
-            @Left.canceled += instance.OnLeft;
+            @Advance.started += instance.OnAdvance;
+            @Advance.performed += instance.OnAdvance;
+            @Advance.canceled += instance.OnAdvance;
         }
 
         /// <summary>
@@ -1818,12 +1810,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Invert.started -= instance.OnInvert;
             @Invert.performed -= instance.OnInvert;
             @Invert.canceled -= instance.OnInvert;
-            @Right.started -= instance.OnRight;
-            @Right.performed -= instance.OnRight;
-            @Right.canceled -= instance.OnRight;
-            @Left.started -= instance.OnLeft;
-            @Left.performed -= instance.OnLeft;
-            @Left.canceled -= instance.OnLeft;
+            @Advance.started -= instance.OnAdvance;
+            @Advance.performed -= instance.OnAdvance;
+            @Advance.canceled -= instance.OnAdvance;
         }
 
         /// <summary>
@@ -2086,18 +2075,11 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInvert(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Right" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Advance" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnRight(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Left" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnLeft(InputAction.CallbackContext context);
+        void OnAdvance(InputAction.CallbackContext context);
     }
 }

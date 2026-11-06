@@ -1026,23 +1026,13 @@
                     "priority": 0
                 },
                 {
-                    "name": "Right",
-                    "type": "Button",
-                    "id": "d2778e46-1a56-4153-a363-2f910adae003",
-                    "expectedControlType": "",
+                    "name": "Advance",
+                    "type": "Value",
+                    "id": "4e54bffc-9741-4284-969a-1e017f7ee5cb",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false,
-                    "priority": 0
-                },
-                {
-                    "name": "Left",
-                    "type": "Button",
-                    "id": "2710783c-f99b-4e41-afba-80183f1bfc89",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false,
+                    "initialStateCheck": true,
                     "priority": 0
                 }
             ],
@@ -1059,48 +1049,59 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "d3b73514-b924-45a4-96a8-2432036e304b",
-                    "path": "<Keyboard>/d",
+                    "name": "AD",
+                    "id": "049ee563-fa33-4f08-9e2b-bcfe13cc140b",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Right",
-                    "isComposite": false,
+                    "action": "Advance",
+                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "dd3ff9ed-b787-41a2-add4-134c843199c3",
-                    "path": "<Keyboard>/rightArrow",
+                    "name": "up",
+                    "id": "fa7b1e23-7f3b-4f7a-89dd-079c864e9843",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Right",
+                    "action": "Advance",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "ce692ea2-8da0-4149-87be-8f833ec8ee03",
+                    "name": "down",
+                    "id": "39d72291-3c4f-496e-afe6-dc86267bf51c",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Advance",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "00fe3153-392c-4c39-8d12-18b6d22e95b8",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Left",
+                    "action": "Advance",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "11d86b82-ad2f-4fc0-941b-4cee86b1d241",
-                    "path": "<Keyboard>/leftArrow",
+                    "name": "right",
+                    "id": "106a3407-759a-4b42-817f-cc7c0a914e4c",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Left",
+                    "action": "Advance",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 }
             ]
         }

@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayer2Actio
     public InputSystem_Actions action;
     private Rigidbody2D rb;
     private RaycastHit2D hit;
+    private float moveInput;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -50,10 +51,19 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayer2Actio
         rb.linearVelocityX = speed;
 	}
 
-    
+    void FixedUpdate()
+    {
+        rb.linearVelocityX = moveInput * speed;
+    }
 
     void Update()
     {
         
     }
+
+    
+    public void OnAdvance(InputAction.CallbackContext context)
+    {
+		moveInput = context.ReadValue<Vector2>().x;
+	}
 }

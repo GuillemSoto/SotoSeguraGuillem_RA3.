@@ -6,7 +6,7 @@ public class DeathObject : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Time.timeScale = 0f;
-        }
+			GameManager.instance.GameOver();
+		}
     }
 }
